@@ -23,17 +23,16 @@ public class ControlLibererEtal {
 	 *         vendu [3] : quantité de produit à vendre au début du marché [4] :
 	 *         quantité de produit vendu
 	 */
-	public String[] libererEtal(String nomVendeur) {
+	public String[] libererEtal(String nomVendeur) throws NullPointerException {
 		String[] donneesEtal = new String[4];
 		Etal etal = controlTrouverEtalVendeur.trouverEtalVendeur(nomVendeur);
-		if(etal != null) {
-			donneesEtal[0] = "1";
-		}else {
-			donneesEtal[0] = "0";
+		if (etal == null) {
+			throw new NullPointerException("Il n'y a aucun étal associé à "+nomVendeur);
 		}
+		donneesEtal[0] = Boolean.toString(etal.isEtalOccupe());
 		donneesEtal[1] = nomVendeur;
 		donneesEtal[2] = etal.getProduit();
-		donneesEtal[3] = etal.getQuantite();
+		donneesEtal[3] = Integer.toString(etal.getQuantite());
 		return donneesEtal;
 	}
 
