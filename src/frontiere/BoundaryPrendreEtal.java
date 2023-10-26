@@ -44,8 +44,9 @@ public class BoundaryPrendreEtal {
 		int nbProduit = Clavier.entrerEntier(interaction.toString());
 		int numeroEtal = controlPrendreEtal.prendreEtal(nomVendeur, produit, nbProduit);
 		if(numeroEtal != -1) {
+			numeroEtal++;
 			interaction.setLength(0);
-			interaction.append("Le vendeur "+nomVendeur+" s'est installé à l'étal n°"+ numeroEtal+"\n");
+			interaction.append("Le vendeur "+nomVendeur+" s'est installé à l'étal n°"+numeroEtal+"\n");
 			System.out.println(interaction.toString());
 		}
 	}

@@ -18,8 +18,8 @@ public class BoundaryLibererEtal {
 			System.out.println(interaction.toString());
 		}else {
 			String[] donnesEtal = controlLibererEtal.libererEtal(nomVendeur);
-			int etalOccupe = Integer.parseInt(donnesEtal[0]);
-			if(etalOccupe==1) {
+			Boolean etalOccupe = Boolean.parseBoolean(donnesEtal[0]);
+			if(Boolean.TRUE.equals(etalOccupe)) {
 				String produit = donnesEtal[2];
 				int quantiteInitial = Integer.parseInt(donnesEtal[3]);
 				int quantiteVendu = Integer.parseInt(donnesEtal[4]);

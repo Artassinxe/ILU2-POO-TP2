@@ -29,10 +29,7 @@ public class ControlLibererEtal {
 		if (etal == null) {
 			throw new NullPointerException("Il n'y a aucun étal associé à "+nomVendeur);
 		}
-		donneesEtal[0] = Boolean.toString(etal.isEtalOccupe());
-		donneesEtal[1] = nomVendeur;
-		donneesEtal[2] = etal.getProduit();
-		donneesEtal[3] = Integer.toString(etal.getQuantite());
+		donneesEtal = etal.etatEtal();
 		return donneesEtal;
 	}
 
