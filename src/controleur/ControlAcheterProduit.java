@@ -35,4 +35,14 @@ public class ControlAcheterProduit {
 		}
 		return vendeurMarche;
 	}
+	
+	public String[] acheter(String nomVendeur,int nombreItem) {
+		Gaulois vendeur = village.trouverHabitant(nomVendeur);
+		Etal etal = village.rechercherEtal(vendeur);
+		String[] infovente = new String[3];
+		infovente[1] = Boolean.toString(etal.getQuantite() == 0);
+		infovente[2] = Boolean.toString(etal.getQuantite() <= nombreItem);
+		infovente[0] = Integer.toString(etal.acheterProduit(nombreItem));
+		return infovente;
+	}
 }

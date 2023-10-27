@@ -33,7 +33,16 @@ public class BoundaryAcheterProduit {
 				interaction.append(i+" - "+infoVendeur[i]+" qui vend "+infoVendeur[i+1]+" "+produit+"\n");
 			}
 			int choix = Clavier.entrerEntier(interaction.toString());
+			interaction.setLength(0);
+			interaction.append(nomAcheteur+" se déplace vers le commerçant "+infoVendeur[choix]+".\n");
+			interaction.append("Combien de "+produit+" souhaitez vous lui acheter ?\n");
+			System.out.println(interaction.toString());
+			int nombreItem = Clavier.entrerEntier(interaction.toString());
+			effectuerAchat(infoVendeur[choix],nombreItem);
+			
 		}
-
+	}
+	private void effectuerAchat(String vendeur, int nombreItem) {
+		String[] infovente = controlAcheterProduit.acheter(vendeur, nombreItem);
 	}
 }
